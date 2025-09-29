@@ -11,7 +11,7 @@
         <h1>Mindmate</h1>
         <nav>
             <a href="moodmeter.html">Moodmeter</a>
-            <a href="home.html">Home</a>
+            <a href="https://dilpadill.github.io/MindMate/">Home</a>
         </nav>
     </div>
 
@@ -37,26 +37,26 @@
             const message = input.value.trim();
 
             if (message) {
-                // Tambahkan pesan user
+                
                 const userBubble = document.createElement('div');
                 userBubble.classList.add('user');
                 userBubble.innerHTML = `<div class="bubble">${message}</div>`;
                 chatbox.appendChild(userBubble);
 
-                // Scroll otomatis ke bawah
+                
                 chatbox.scrollTop = chatbox.scrollHeight;
 
-                // Hapus teks input
+               
                 input.value = '';
 
-                // Tampilkan "Bot sedang mengetik..."
+                
                 const botTyping = document.createElement('div');
                 botTyping.classList.add('bot');
                 botTyping.innerHTML = `<div class="bubble">Bot sedang mengetik...</div>`;
                 chatbox.appendChild(botTyping);
 
                 try {
-                    // Kirim pesan ke server backend
+                    
                     const response = await fetch('http://localhost:3000/chat', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -66,7 +66,7 @@
                     const data = await response.json();
                     botTyping.remove();
 
-                    // Tambahkan respons bot
+                   
                     const botBubble = document.createElement('div');
                     botBubble.classList.add('bot');
                     botBubble.innerHTML = `<div class="bubble">${data.botMessage}</div>`;
