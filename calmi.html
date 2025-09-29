@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindmate - Chatbot</title>
+    <link rel="stylesheet" href="styles.css/chatbot.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Mindmate</h1>
+        <nav>
+            <a href="moodmeter.html">Moodmeter</a>
+            <a href="home.html">Home</a>
+        </nav>
+    </div>
+
+    <!-- Container untuk chat -->
+    <div class="chat-container">
+        <div class="chatbox" id="chatbox">
+            <div class="bot">
+                <div class="bubble">Hi! Senang bertemu denganmu. Ada yang bisa Calmi bantu?</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input area -->
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Ketik pesanmu di sini...">
+        <button onclick="sendMessage()">Kirim</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const chatbox = document.getElementById('chatbox');
+            const message = input.value.trim();
+
+            if (message) {
+                // Tambahkan pesan user
+                const userBubble = document.createElement('div');
+                userBubble.classList.add('user');
+                userBubble.innerHTML = `<div class="bubble">${message}</div>`;
+                chatbox.appendChild(userBubble);
+
+                // Scroll otomatis ke bawah
+                chatbox.scrollTop = chatbox.scrollHeight;
+
+                // Hapus teks input
+                input.value = '';
+
+                // Tampilkan "Bot sedang mengetik..."
+                const botTyping = document.createElement('div');
+                botTyping.classList.add('bot');
+                botTyping.innerHTML = `<div class="bubble">Bot sedang mengetik...</div>`;
+                chatbox.appendChild(botTyping);
+
+                try {
+                    // Kirim pesan ke server backend
+                    const response = await fetch('http://localhost:3000/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message })
+                    });
+
+                    const data = await response.json();
+                    botTyping.remove();
+
+                    // Tambahkan respons bot
+                    const botBubble = document.createElement('div');
+                    botBubble.classList.add('bot');
+                    botBubble.innerHTML = `<div class="bubble">${data.botMessage}</div>`;
+                    chatbox.appendChild(botBubble);
+
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                } catch (error) {
+                    console.error('Error:', error);
+                    botTyping.remove();
+
+                    const errorBubble = document.createElement('div');
+                    errorBubble.classList.add('bot');
+                    errorBubble.innerHTML = `<div class="bubble">Maaf, terjadi kesalahan. Silakan coba lagi nanti.</div>`;
+                    chatbox.appendChild(errorBubble);
+
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

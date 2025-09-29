@@ -1,0 +1,80 @@
+/* Global styles for all pages */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f4fc;
+}
+
+header {
+    background-color: #7fb3d5; /* Sama dengan Moodmeter */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+header div {
+    font-size: 24px;
+    color: #fff; /* Tulisan Mindmate jadi putih */
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+}
+
+header a {
+    color: #fff; /* Warna putih pada link */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the home page */
+.home-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.home-container h1 {
+    font-size: 36px;
+    color: #01579b; /* Warna biru untuk judul utama */
+    margin-bottom: 10px;
+}
+
+.home-container p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.home-container .feature {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.home-container .feature img {
+    max-width: 100px;
+}
+
+.home-container .feature h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #0288d1; /* Warna biru pada subjudul fitur */
+}
+
+.home-container .feature p {
+    font-size: 16px;
+    color: #555;
+}

@@ -1,0 +1,112 @@
+/* Moodmeter Page CSS */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f4fc; /* Sama seperti Home */
+}
+
+header {
+    background-color: #7fb3d5; /* Sama seperti Home */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff; /* Sama seperti Home */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    font-size: 22px;
+    color: #000000; /* Sama seperti Home */
+    margin-bottom: 20px;
+}
+
+.options {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.options p {
+    font-size: 18px;
+    color: #000000; /* Sama seperti Home */
+    margin: 10px 0;
+}
+
+.mood-meter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.mood-meter img {
+    width: 150px;
+    height: auto;
+}
+
+.next-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0288d1; /* Sama seperti Home */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #01579b; /* Sama seperti Home */
+}
+
+.question-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.question-image {
+    width: 100px; /* Atur ukuran gambar */
+    height: auto;
+    margin-right: 20px; /* Jarak antara gambar dan teks */
+    border-radius: 10px; /* Tambahkan sudut melengkung jika diinginkan */
+}
+
+.question-text {
+    font-size: 20px;
+    color: #0288d1; /* Sama seperti Home */
+    margin: 0;
+}
